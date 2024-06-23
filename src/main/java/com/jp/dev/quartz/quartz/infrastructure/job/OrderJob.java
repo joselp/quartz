@@ -6,7 +6,7 @@ import org.quartz.JobDataMap;
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
 
-public class JobExecutor implements Job {
+public class OrderJob implements Job {
 
   @Override
   public void execute(JobExecutionContext jobExecutionContext) throws JobExecutionException {
@@ -15,7 +15,7 @@ public class JobExecutor implements Job {
     String jobId = (String) jobDataMap.get("jobID");
     System.out.println("Job Started-"+jobId+" at:"+ LocalDateTime.now());
     try {
-      Thread.sleep(2000);
+      Thread.sleep(3000);
       System.out.println("Job Finished-"+jobId+" at:"+ LocalDateTime.now());
     } catch (InterruptedException e) {
       throw new RuntimeException(e);
